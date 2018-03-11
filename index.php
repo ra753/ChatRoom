@@ -26,8 +26,8 @@
   <p class="logup">Login to the Chat Room </p>
 
   <form id="form1" action="loggedIn.php" method="post">
-  User Name:<input type="text" name="username"> </br>
-  Password:<input type="text" name="password"> </br>
+  User Name:  <input type="text" name="username"> </br>
+  Password:  <input type="password" name="password"> </br>
   <input class="loginbutton"type="submit" name="Log In">
   </form>
 </body>
@@ -41,7 +41,7 @@
     Name: <input type="text" name="name"></br>
     Phone number: <input type="number" name="number"></br>
     Birthday: <input type="date" name="dob"></br>
-    Password: <input type="text" name="password"></br>
+    Password: <input type="password" name="password"></br>
     <input class="loginbutton"type="submit" name="Sign Up">
   </form>
 </div>

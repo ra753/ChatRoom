@@ -91,6 +91,10 @@ body {
 
 <div class="output">
   hi
+  <?php
+    include 'dbcoonect.php';
+    $sql="SELECT time,name,msg
+   ?>
 
 
 <!--here chat will be displayed-->
