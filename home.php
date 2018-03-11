@@ -8,21 +8,23 @@ session_start();
 <!--<link type="text/css" rel="stylesheet" href="home_style.css" />-->
 <style>
 body {
-  <!--background-image: url(bluebkg.png);-->
-  background-color: #6b6c6d;
+  background-image: url(home.png);
 }
 .output {
   position: absolute;
-  color: black;
-  top:20%;
-  left:25%;
-  cols: 50;
-  overflow: scroll;
+  background-color: #ed477e;
+  box-shadow: 0px 1px 1px #000;
+  height: 333px;
+  width: 736px;
+  left: 25%;
+  top: 20%;
+  margin-bottom: 20px;
+  overflow: auto;
 }
 .btn {
   position:absolute;
   top:100%;
-  left: 47%;
+  left: 20%;
   -webkit-border-radius: 22;
   -moz-border-radius: 22;
   border-radius: 22px;
@@ -31,6 +33,7 @@ body {
   font-size: 12px;
   background: #d93434;
   padding: 10px 20px 10px 20px;
+  border: solid #1f628d 2px;
   text-decoration: none;
 }
 
@@ -72,9 +75,9 @@ body {
 }
 
 .colorbar {
-  color: green;
+  color: #f54f65;
   height: 0px;
-  border-bottom:solid 35px #1ce81c;
+  border-bottom:solid 35px #f54f65;
 }
 
 .send {
@@ -82,7 +85,29 @@ body {
    transition: .5s ease;
    top: 70%;
    left: 25%;
+   color: #ed477e;
 
+}
+
+.reloadbtn {
+  position:absolute;
+  top:83.3%;
+  left: 60%;
+  -webkit-border-radius: 22;
+  -moz-border-radius: 22;
+  border-radius: 22px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  background: #d93434;
+  padding: 10px 20px 10px 20px;
+  border: solid #1f628d 2px;
+  text-decoration: none;
+}
+
+.reloadbtn:hover {
+  background: #07ed5f;
+  text-decoration: none;
 }
 </style>
 <div class="colorbar">
@@ -91,11 +116,29 @@ body {
 
 <div class="output">
   <?php
-    //include 'dbcoonect.php';
-    //$sql="SELECT time,name,msg
+    include 'dbcoonect.php';
+    $sql="SELECT * FROM chatbox";
+    $result=$connection->query($sql);
+
+    if($result->num_rows>0)
+    {
+      while($row=$result->fetch_assoc())
+      {
+        echo  "[". $row["time"]. "]". " ". $row["name"]. "-->".$row["msg"]. "</br>";
+        echo "</br>";
+      }
+    }
+    else {
+      echo "0 results";
+    }
   ?>
 </div>
 
+
+
+<form id="reload" action="home.php" method="POST">
+  <input class="reloadbtn" type="submit" value="Check">
+</form>
 <div class="send">
 
 <form id="send" action="send.php" method="POST">
@@ -107,6 +150,9 @@ body {
 <!--logout-->
 <form id="logout" action="logout.php" method="POST">
   <input class="logoutbutton" type="submit" value="logout">
+</form>
+
+
 
 </body>
 </head>
