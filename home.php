@@ -5,6 +5,7 @@ if (!isset($_SESSION['name'])) {
   header('location: index.php');
 }
 ?>
+
 <html>
 <head>
 <title>Active Now</title>
