@@ -2,9 +2,10 @@
 session_start(); //starting the session
 
 include 'dbcoonect.php';
-//include 'errors.php';
+
 
 $errors=array();
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 
@@ -29,5 +30,6 @@ if(mysqli_num_rows($result)==1) {
   array_push($errors,"Wrong Username/Password");
 }
 }
+include 'errors.php';
 
 ?>
