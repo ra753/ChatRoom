@@ -40,10 +40,10 @@ body {
 }
 
 .logoutbutton {
-   position:absolute;
-    transition: .5s ease;
-    top: 10%;
-    left: 90%;
+  position:absolute;
+  transition: .5s ease;
+  top: 10%;
+  left: 90%;
   background: #ffbdf1;
   background-image: -webkit-linear-gradient(top, #ffbdf1, #e3092a);
   background-image: -moz-linear-gradient(top, #ffbdf1, #e3092a);
@@ -90,24 +90,13 @@ body {
 </div>
 
 <div class="output">
-  hi
   <?php
-    include 'dbcoonect.php';
-    $sql="SELECT time,name,msg
-   ?>
-
-
-<!--here chat will be displayed-->
-
+    //include 'dbcoonect.php';
+    //$sql="SELECT time,name,msg
+  ?>
 </div>
 
-<!--send box-->
 <div class="send">
-<?php
-include "dbcoonect.php"
-//$cols=100;
-//$rows=50;
-?>
 
 <form id="send" action="send.php" method="POST">
 <textarea name="msg" placeholder="Enter your message"cols="100" rows="5">

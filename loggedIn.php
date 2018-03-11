@@ -1,21 +1,33 @@
 <?php
 session_start(); //starting the session
-include 'dbcoonect.php';
 
+include 'dbcoonect.php';
+//include 'errors.php';
+
+$errors=array();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-////checking if user exists i the data base
-$sql="SELECT * FROM userinfo WHERE username='$username' AND
-password='$password'";
-$result=$connection->query($sql);
-
-if(!$row=$result->fetch_assoc()) {
-  header("Location:error.php"); }
-
-else {
-  $_SESSION['name']=$_POST['username'];
+//Checking if all the fields are filled
+if(empty($username)) {
+  array_push($errors,"Username is required");
 }
-header("Location:home.php");
+
+if(empty($password)) {
+  array_push($errors,"Password is required");
+}
+
+if(count($errors)==0) {
+  $sql="SELECT * FROM userinfo WHERE username='$username' AND
+password='$password'";
+$result=mysqli_query($connection, $sql);
+
+if(mysqli_num_rows($result)==1) {
+  $_SESSION['name']=$_POST['username'];
+  header("Location:home.php");
+} else {
+  array_push($errors,"Wrong Username/Password");
+}
+}
 
 ?>
