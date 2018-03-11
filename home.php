@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['name'])) {
+    echo "You must log in first";
+  header('location: index.php');
+}
 ?>
 <html>
 <head>

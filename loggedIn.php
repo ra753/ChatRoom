@@ -9,6 +9,8 @@ $errors=array();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+$password=md5($password);
+
 //Checking if all the fields are filled
 if(empty($username)) {
   array_push($errors,"Username is required");
