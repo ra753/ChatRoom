@@ -20,6 +20,7 @@
   .loginbutton:hover {
     background: #07ed5f;
     text-decoration: none;
+    font-size: 15px;
   }
   </style>
   <div class="login">
